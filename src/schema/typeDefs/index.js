@@ -6,10 +6,10 @@ type Query{
 }
 
 type Mutation {
-    addImage(image:String):Image
+    addImage(image:inputImage):Image
     updateImage(id: ID!, image: String!):Image
     deleteImage(id: ID!): String
-    addGallery(gallery: inputGallery): Gallery
+    addGallery(gallery: inputGallery!): Gallery
     deleteGallery(id:ID!): String
     updateGallery(id: ID!, gallery: String): Gallery
     addMessage(message: String!):Message
