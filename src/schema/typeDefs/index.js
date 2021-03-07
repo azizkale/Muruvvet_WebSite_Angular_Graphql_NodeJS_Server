@@ -9,7 +9,7 @@ type Mutation {
     addImage(image:String):Image
     updateImage(id: ID!, image: String!):Image
     deleteImage(id: ID!): String
-    addGallery(gallery: String): Gallery
+    addGallery(gallery: inputGallery): Gallery
     deleteGallery(id:ID!): String
     updateGallery(id: ID!, gallery: String): Gallery
     addMessage(message: String!):Message
@@ -18,6 +18,7 @@ type Mutation {
 type Image {
     id:ID
     url: String
+    thumbUrl: String
     description: String
     date: String   
     index: Int
@@ -26,9 +27,28 @@ type Image {
 
 type Gallery {
     id: ID
+    galleryName: String
     backGroungImageUrl: String   
     galleryTitle: String
     images:[Image]
+}
+
+input inputGallery{
+    id: ID
+    galleryName: String
+    backGroungImageUrl: String   
+    galleryTitle: String
+    images:[inputImage]
+}
+
+input inputImage{
+    id:ID
+    url: String
+    thumbUrl: String
+    description: String
+    date: String   
+    index: Int
+    galleryId: ID
 }
 type User {
     id: ID

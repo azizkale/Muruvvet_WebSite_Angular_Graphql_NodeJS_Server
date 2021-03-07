@@ -1,24 +1,12 @@
 const Gallery = require("../../../DbModels/Gallery");
 
 const addGallery = async (_, { gallery }) => {
-  const gal = JSON.parse(gallery);
-
-  const {
-    backGroungImageUrl,
-    fontColor,
-    fontFamily,
-    fontSize,
-    galleryTitle,
-    googleFontLink,
-  } = gal;
+  const { galleryName, backGroungImageUrl, galleryTitle } = gallery;
 
   const newGallery = new Gallery({
+    galleryName,
     backGroungImageUrl,
-    fontColor,
-    fontFamily,
-    fontSize,
     galleryTitle,
-    googleFontLink,
   });
   await newGallery.save();
   return newGallery;

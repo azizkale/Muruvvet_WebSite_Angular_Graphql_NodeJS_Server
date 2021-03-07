@@ -1,14 +1,14 @@
 const { GraphQLServer } = require("graphql-yoga");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-import jwt from "jsonwebtoken";
-import { rule, shield, and, or, not } from "graphql-shield";
+const jwt = require("jsonwebtoken");
+const { rule, shield, and, or, not } = require("graphql-shield");
 const resolvers = require("./schema/resolvers");
 const typeDefs = require("./schema/typeDefs");
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -35,22 +35,22 @@ const canAddUser = rule()(async (parent, args, ctx, info) => {
 // Permissions
 const permissions = shield({
   Query: {
-    users: and(isAuthenticated),
+    // users: and(isAuthenticated),
   },
   Mutation: {
-    addUser: and(isAuthenticated, canAddUser),
+    // addUser: and(isAuthenticated, canAddUser),
   },
 });
 
 const server = new GraphQLServer({
   typeDefs,
   resolvers,
-  middlewares: [permissions],
+  // middlewares: [permissions],
   context: (req) => ({
     claims: getClaims(req),
   }),
 });
 
-server.start({ port: 4000 }, () =>
-  console.log("Server is running on http://localhost:4000")
+server.start({ port: 4003 }, () =>
+  console.log("Server is running on http://localhost:4003")
 );

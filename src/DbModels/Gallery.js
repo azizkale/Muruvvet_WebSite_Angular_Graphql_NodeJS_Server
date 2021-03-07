@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const Gallery = {
+  galleryName: String,
   backGroungImageUrl: String,
   galleryTitle: String,
   images: [

@@ -4,7 +4,7 @@ const Message = {
   name: String,
   mail: String,
   date: String,
-  message: Number,
+  message: String,
 };
 
 module.exports = mongoose.model("Message", Message);
