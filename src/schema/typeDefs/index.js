@@ -1,7 +1,7 @@
 const typeDefs = `
 type Query{
     getImages(galleryID: String!):[Image]
-    getGalleryInfos:[Gallery!]
+    getGalleryInfos:[Gallery]
     getUsers(path: String!):[User]
 }
 
@@ -11,7 +11,7 @@ type Mutation {
     deleteImage(id: ID!): String
     addGallery(gallery: inputGallery!): Gallery
     deleteGallery(id:ID!): String
-    updateGallery(id: ID!, gallery: String): Gallery
+    updateGallery(id: ID!, gallery: inputGallery!): Gallery
     addMessage(message: String!):Message
     deleteMessage(id: String): String
 }
