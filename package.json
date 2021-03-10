@@ -1,0 +1,23 @@
+{
+  "name": "GraphQL-Yoga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "graphql-shield": "^7.5.0",
+    "graphql-yoga": "^1.18.3",
+    "heroku": "^7.47.7",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^5.11.11",
+    "nodemon": "^2.0.6"
+  }
+}
