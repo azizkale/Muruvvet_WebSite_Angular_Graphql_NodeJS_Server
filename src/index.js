@@ -20,7 +20,6 @@ function getClaims(req) {
   } catch (e) {
     return null;
   }
-  console.log(token);
   return token;
 }
 
