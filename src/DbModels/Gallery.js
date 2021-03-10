@@ -7,6 +7,7 @@ const Gallery = {
   images: [
     {
       url: String,
+      thumbUrl: String,
       description: String,
       date: String,
       index: Number,
