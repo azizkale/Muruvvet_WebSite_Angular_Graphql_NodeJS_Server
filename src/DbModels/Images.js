@@ -7,6 +7,7 @@ const Image = {
   date: String,
   index: Number,
   galleryId: String,
+  story: String,
 };
 
 module.exports = mongoose.model("Image", Image);

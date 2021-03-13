@@ -51,4 +51,4 @@ const server = new GraphQLServer({
   }),
 });
 
-server.start();
+server.start({ port: 4003 });

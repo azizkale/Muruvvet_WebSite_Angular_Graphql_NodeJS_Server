@@ -7,7 +7,7 @@ type Query{
 
 type Mutation {
     addImage(image:inputImage):Image
-    updateImage(id: ID!, image: String!):Image
+    updateImage(galleryId: ID!, image: inputImage!):Image
     deleteImage(galleryId: ID!, imageId: ID!): String
     addGallery(gallery: inputGallery!): Gallery
     deleteGallery(id:ID!): String
@@ -23,6 +23,7 @@ type Image {
     date: String   
     index: Int
     galleryId: ID
+    story: String
 }
 
 type Gallery {
@@ -49,6 +50,8 @@ input inputImage{
     date: String   
     index: Int
     galleryId: ID
+    story: String
+
 }
 type User {
     id: ID

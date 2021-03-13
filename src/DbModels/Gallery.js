@@ -12,6 +12,7 @@ const Gallery = {
       date: String,
       index: Number,
       galleryId: String,
+      story: String,
     },
   ],
 };
