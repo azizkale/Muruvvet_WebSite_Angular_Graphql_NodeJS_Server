@@ -1,14 +1,17 @@
-const Image = require("../../../DbModels/Images");
+const Gallery = require("../../../DbModels/Gallery");
 
-const updateImage = async (_, { id, image }) => {
-  const imageObj = JSON.parse(image);
-  const result = await Image.updateOne(
-    { _id: id },
+const updateImage = async (_, { galleryId, image }) => {
+  await Gallery.updateOne(
+    { _id: galleryId, "images._id": image.id },
     {
-      $set: imageObj,
+      $set: {
+        "images.$.description": image.description,
+        "images.$.story": image.story,
+        "images.$.index": image.index,
+      },
     }
   );
-  return imageObj;
+  return "OK";
 };
 
 module.exports = updateImage;
